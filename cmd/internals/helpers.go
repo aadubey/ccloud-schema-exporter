@@ -376,7 +376,7 @@ func GetCurrentSubjectState(client *SchemaRegistryClient) map[string][]int64 {
 	subjects := make(map[string][]int64)
 	aChan := make(chan map[string][]int64)
 
-	go client.GetSubjectsWithVersions(aChan, false)
+	go client.GetSubjectsWithVersions(aChan, true)
 
 	subjects = <-aChan
 	return subjects
